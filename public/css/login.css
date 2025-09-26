@@ -1,0 +1,140 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.login-background {
+    background: linear-gradient(rgba(234, 187, 187, 0.182), rgba(0,0,0,0.5)), 
+                url('/images/logo.png') no-repeat center center fixed;
+    background-position: center 40%;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+
+.auth-container {
+    background-color: rgba(199, 133, 133, 0.95);
+    padding: 0px 30px;
+    border-radius: 12px 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;              /* 🔹 لا يتجاوز 90% من ارتفاع الشاشة */
+    overflow-y: auto;              /* 🔹 تفعيل التمرير الداخلي */
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    text-align: center;
+    
+}
+
+.auth-header {
+    position: sticky;
+    top: 0;
+        background-color: rgba(199, 133, 133, 0.95);
+ /* نفس لون الخلفية لتغطية المحتوى خلفه */
+    padding-bottom: 0px;
+    z-index: 10; /* لضمان ظهوره فوق عناصر أخرى */
+    border-bottom: 1px solid #ddd;
+}
+
+.auth-container::-webkit-scrollbar {
+    width: 8px; /* عرض شريط التمرير */
+}
+
+.auth-container::-webkit-scrollbar-track {
+    background: transparent; /* خلفية المسار */
+}
+
+.auth-container::-webkit-scrollbar-thumb {
+    background-color: #b71c1c; /* 🔴 نفس لون الزر */
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.auth-container::-webkit-scrollbar-thumb:hover {
+    background-color: #d32f2f; /* لون عند التمرير Hover */
+}
+
+.auth-container h2 {
+    margin-bottom: 20px;
+    color: #b71c1c;
+}
+
+.auth-container label {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: 'Cairo', sans-serif;
+
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Cairo', sans-serif;
+
+}
+
+.auth-container button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #b71c1c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.auth-container button:hover {
+    background-color: #d32f2f;
+}
+
+.auth-container p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.auth-container a {
+    color: #b71c1c;
+    text-decoration: none;
+}
+
+.logo {
+    max-width: 120px;
+    margin-bottom: 15px;
+}
+
+/* الرسالة fade-in و fade-out */
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+.is-invalid {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
