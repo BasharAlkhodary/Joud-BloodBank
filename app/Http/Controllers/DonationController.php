@@ -37,21 +37,24 @@ class DonationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'blood_type' => 'required|in:A+,A-,B+,B-,AB+,AB-,O+,O-',
-        'donor_id' => 'required|exists:donors,id',
+            'identity_number' => 'required|exists:donors,identity_number',
+            'blood_type' => 'required|in:A+,A-,B+,B-,AB+,AB-,O+,O-',
     ]);
 
-    $donation = Donation::create([
-        'donor_id' => $request->donor_id,
+    $donor = Donor::where('identity_number', $request->identity_number)->first();
+
+    if (!$donor) {
+        return response()->json(['success' => false, 'message' => 'Donor not found']);
+    }
+
+    // تسجيل التبرع
+    $donation = $donor->donations()->create([
         'blood_type' => $request->blood_type,
-        'blood_bank_id' => auth()->id(), // المستخدم الحالي هو بنك الدم
+        'blood_bank_id' => auth()->id(), // بنك الدم الحالي
+        'donated_at' => now(),
     ]);
 
-    return response()->json([
-        'success' => true,
-        'message' => 'Donation recorded successfully!',
-        'data' => $donation
-    ]);
+    return response()->json(['success' => true, 'message' => 'Donation registered successfully']);
     }
 
     /**

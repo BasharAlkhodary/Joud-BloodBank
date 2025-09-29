@@ -95,10 +95,10 @@ public function search(Request $request)
             'success' => true,
             'data' => [
                 'id' => $donor->id,
-                'full_name' => $donor->user->first_name . ' ' .
-                               $donor->user->father_name . ' ' .
-                               $donor->user->grandfather_name . ' ' .
-                               $donor->user->family_name,
+                'full_name' =>  $donor->user->first_name . ' ' .
+                                $donor->user->father_name . ' ' .
+                                $donor->user->grandfather_name . ' ' .
+                                $donor->user->family_name,
                 'identity_number' => $donor->identity_number,
                 'blood_type' => $donor->blood_type ?? 'غير محدد'
             ]

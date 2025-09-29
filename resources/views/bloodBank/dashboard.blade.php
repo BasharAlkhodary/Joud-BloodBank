@@ -201,7 +201,7 @@
                             @csrf
                             <label class="text-dark fw-bold">Select the required blood type :</label>
                             <select name="blood_type" required class="form-select mb-3">
-                                <option value="">اختر فصيلة الدم</option>
+                                <option value="">Select Blood type ...</option>
                                 <option value="A+">A+</option>
                                 <option value="A-">A-</option>
                                 <option value="B+">B+</option>
@@ -213,7 +213,7 @@
                             </select>
 
                             <button type="submit" class="btn btn-warning fw-bold shadow-sm px-4">
-                                <i class="fas fa-bell me-2"></i> إرسال إشعار
+                                <i class="fas fa-bell me-2"></i> Send Notifications
                             </button>
                         </form>
                     </div><!--/ .col-md-4 -->
@@ -223,7 +223,7 @@
                         <button class="btn btn-gradient-red shadow-lg d-flex align-items-center px-5 py-3"
                                 data-bs-toggle="modal" data-bs-target="#donationModal">
                             <i class="fas fa-heartbeat me-2 fs-4"></i>
-                            <span class="fw-bold fs-5">تبرع جديد</span>
+                            <span class="fw-bold fs-5">New Donation</span>
                         </button>
                     </div><!--/ .col-md-4 -->
 

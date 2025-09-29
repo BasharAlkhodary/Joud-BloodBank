@@ -9,6 +9,7 @@ class Donation extends Model
 {
     use HasFactory;
 
+    
     protected $fillable = [
         'donor_id',
         'blood_type',
@@ -17,12 +18,14 @@ class Donation extends Model
 
     public function donor()
     {
-        return $this->belongsTo(User::class, 'donor_id');
+        return $this->belongsTo(Donor::class);
     }
 
     public function bloodBank()
     {
-        return $this->belongsTo(User::class, 'blood_bank_id');
+        return $this->belongsTo(User::class, 'blood_bank_id'); // إذا بنك الدم مخزن في users
     }
+
+
 
 }
