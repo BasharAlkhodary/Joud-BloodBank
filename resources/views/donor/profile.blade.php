@@ -74,7 +74,7 @@
         <div class="col-md-6">
           <label class="form-label" style="font-family: cursive"><b> Blood Type</b></label>
           <input type="text" class="form-control text-danger fw-bold" value="{{ $donor->blood_type }}" readonly>
-          <small class="text-muted">Blood type cannot be changed - added by the blood bank *</small>
+          <small class="text-danger" >Blood type cannot be changed - added by the blood bank *</small>
         </div>
       </div>
 

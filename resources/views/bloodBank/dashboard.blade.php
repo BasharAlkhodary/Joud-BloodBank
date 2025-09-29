@@ -188,86 +188,128 @@
 <br><br>
 
 <!-- End of Features Section-->	<section id="section-featurettes" class="featurettes overlay bg-fixed" >
+<div id="blood" class="container">
+    <div class="section-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row align-items-center text-white">
 
-    <div id="blood" class="container">
-        <div class="section-content">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row align-items-center text-white">
+                    <!-- صندوق إرسال إشعار -->
+                    <div class="col-md-4 offset-md-2 col-sm-6" data-aos="fade-right">
+                        <h3 class="mb-4" id="blood" style="font-family: cursive">Blood Donation Request</h3>
+                        <form action="{{ route('donation-requests.store') }}" method="POST" class="bg-light p-3 rounded shadow-sm">
+                            @csrf
+                            <label class="text-dark fw-bold">Select the required blood type :</label>
+                            <select name="blood_type" required class="form-select mb-3">
+                                <option value="">اختر فصيلة الدم</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
 
-                        <div class="col-md-4 offset-md-2 col-sm-6" data-aos="fade-right">
-                            <h3 class="mb-4" id="blood" style="font-family: cursive">Blood Donation Request</h3>
-                            <form action="{{ route('donation-requests.store') }}" method="POST">
-                                @csrf
-                                <label> Select the required blood type :</label>
-                                <select name="blood_type" required>
-                                    <option value="">اختر فصيلة الدم</option>
-                                    <option value="A+">A+</option>
-                                    <option value="A-">A-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="O+">O+</option>
-                                    <option value="O-">O-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="AB-">AB-</option>
-                                </select>
+                            <button type="submit" class="btn btn-warning fw-bold shadow-sm px-4">
+                                <i class="fas fa-bell me-2"></i> إرسال إشعار
+                            </button>
+                        </form>
+                    </div><!--/ .col-md-4 -->
 
-                                <button type="submit">إرسال إشعار</button>
-                            </form>
-                        </div><!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
+                    <!-- زر تبرع جديد بجانبها -->
+                    <div class="col-md-4 col-sm-6 d-flex justify-content-center align-items-center mt-5 mt-md-0" data-aos="fade-left">
+                        <button class="btn btn-gradient-red shadow-lg d-flex align-items-center px-5 py-3"
+                                data-bs-toggle="modal" data-bs-target="#donationModal">
+                            <i class="fas fa-heartbeat me-2 fs-4"></i>
+                            <span class="fw-bold fs-5">تبرع جديد</span>
+                        </button>
+                    </div><!--/ .col-md-4 -->
 
-                        
-
-                    </div><!--/ .featurettes-item -->
-
-                </div><!--/ .col-md-12 -->
-
-            </div><!--/ .row -->
-        </div>
-    </div><!--/ .container -->
-
-<!-- End of Portfolio Section -->	<!-- Client Section -->
-{{-- <section id="client" class="overlay bg-fixed">
-    <div class="container">
-        <div class="section-content" data-aos="fade-up">
-            <div class="row ">
-                <div class="col-md-12">
-                    <!-- Section Title -->
-                    <div class="title-wrap mb-5">
-                        <h2 style="font-family: cursive">Joud Blood loves you</h2>
-                    </div>
-                    <!-- End of Section Title -->
-                </div>
-                <!-- Client Holder -->
-                <div class="col-md-12 client-holder">
-                    <div class="client-slider owl-carousel">
-                        <div class="client-item">
-                            <img class="img-responsive" src="{{asset ('img/photo-1.jpg')}}" alt=" ">
-                        </div>
-                        <div class="client-item">
-                            <img class="img-responsive" src="{{asset ('img/logo.png')}}" alt=" ">
-                        </div>
-                        <div class="client-item">
-                            <img class="img-responsive" src="{{asset ('img/photo-1.jpg')}}" alt=" ">
-                        </div>
-                        <div class="client-item">
-                            <img class="img-responsive" src="{{asset ('img/logo.png')}}" alt=" ">
-                        </div>
-                        <div class="client-item">
-                            <img class="img-responsive" src="{{asset ('img/photo-1.jpg')}}" alt=" ">
-                        </div>
-                        <div class="client-item">
-                            <img class="img-responsive" src="{{asset ('img/logo.png')}}" alt=" ">
-                        </div>
-                    </div>
-                    <!-- End of Client Holder -->
-                </div>
+                </div><!--/ .row -->
             </div>
         </div>
-</section> --}}
+    </div>
+</div>
 
-<!-- End of Client Section -->	<!-- Reservation Section -->
-<!-- End of Features Section--></div>
+<!-- نافذة التبرع الجديد -->
+<div class="modal fade" id="donationModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 15px; overflow: hidden;">
+      
+      <!-- العنوان -->
+      <div class="modal-header" style="background: linear-gradient(135deg,#b71c1c,#e53935); color: #fff;">
+        <h5 class="modal-title">
+          <i class="fas fa-hand-holding-medical me-2"></i> 
+        New Donation
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- المحتوى -->
+      <div class="modal-body">
+        {{-- <input type="hidden" name="donor_id" id="donorIdInput"> --}}
+
+        
+     <!-- شريط البحث -->
+        <div class="mb-4">
+          <label for="searchDonor" class="form-label fw-bold">Search by Identity No.</label>
+          <input type="number" id="searchDonor" class="form-control" placeholder="Search By Identity Number..." />
+        </div>
+
+       <!-- جدول عرض النتائج -->
+        <div class="table-responsive">
+        <table class="table table-striped table-hover text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Identity Number</th>
+                    <th>Blood Type</th>
+                </tr>
+            </thead>
+            <tbody id="donorResult">
+                <tr>
+                    <td colspan="3" class="text-muted">اكتب رقم الهوية للبحث...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+        <!-- زر التنفيذ -->
+    <div class="text-center mt-4">
+        <div class="text-center mt-3">
+                    <input type="hidden" name="donor_id" id="donorIdInput">
+            <button class="btn btn-success" id="donateNowBtn" disabled>Submit Donation</button>
+        </div>
+    </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- CSS خاص بالزر الجديد -->
+<style>
+.btn-gradient-red {
+    background: linear-gradient(45deg, #c0392b, #e74c3c);
+    border: none;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.btn-gradient-red:hover {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+}
+.btn-gradient-red:active {
+    transform: scale(0.95);
+}
+</style>
+
 
 <section id="warehouse" class="overlay bg-fixed py-5" style="background-image: url('{{ asset('img/bg.jpg') }}'); background-size: cover; background-position: center;">
     <div class="container">
@@ -464,5 +506,114 @@ document.addEventListener('DOMContentLoaded', function() {
 
 $('#side-nav').addClass('active');
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    // Pagination AJAX
+    function loadDonors(page = 1) {
+        fetch(`/donors?page=${page}`)
+            .then(res => res.text())
+            .then(html => {
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const newList = doc.querySelector('#donors-list');
+                if(newList) document.querySelector('#donors-list').innerHTML = newList.innerHTML;
+                attachPaginationLinks();
+            }).catch(console.error);
+    }
+    function attachPaginationLinks() {
+        document.querySelectorAll('#pagination-links a').forEach(link => {
+            link.addEventListener('click', function(e){
+                e.preventDefault();
+                const page = new URL(this.href).searchParams.get('page');
+                loadDonors(page);
+            });
+        });
+    }
+    document.addEventListener('DOMContentLoaded', attachPaginationLinks);
+
+    // Donor Search
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchDonor");
+    const donorResult = document.getElementById("donorResult");
+    const donateBtn = document.getElementById("donateNowBtn");
+
+    searchInput.addEventListener("keyup", function () {
+        let identity = this.value.trim();
+
+        if(identity.length < 5){
+            donorResult.innerHTML = `<tr><td colspan="3" class="text-muted">اكتب رقم الهوية للبحث...</td></tr>`;
+            donateBtn.disabled = true;
+            return;
+        }
+
+        fetch(`/donors/search?identity_number=${identity}`)
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            donorResult.innerHTML = `
+                <tr>
+                    <td>${data.data.full_name}</td>
+                    <td>${data.data.identity_number}</td>
+                    <td>${data.data.blood_type}</td>
+                </tr>
+            `;
+            document.getElementById('donorIdInput').value = data.data.id; 
+            donateBtn.disabled = false;
+        } else {
+            donorResult.innerHTML = `<tr><td colspan="3" class="text-danger">المتبرع غير موجود</td></tr>`;
+            donateBtn.disabled = true;
+        }
+    })
+            .catch(() => {
+                donorResult.innerHTML = `<tr><td colspan="3" class="text-danger">خطأ في البحث</td></tr>`;
+                donateBtn.disabled = true;
+            });
+    });
+});
+
+
+//  onclick event لزر donateNowBtn لإرسال بيانات التبرع:
+
+document.getElementById("donateNowBtn").addEventListener("click", function() {
+    let identity = document.getElementById("searchDonor").value.trim();
+    let bloodType = document.querySelector("#donorResult tr td:nth-child(3)").textContent;
+
+    if (!identity || !bloodType) {
+        alert("Select a valid donor and blood type!");
+        return;
+    }
+
+    fetch("{{ route('donations.store') }}", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+        },
+        body: JSON.stringify({
+            identity_number: identity,
+            blood_type: bloodType
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert("Donation registered successfully!");
+            // إلغاء تفعيل الزر بعد التسجيل
+            document.getElementById("donateNowBtn").disabled = true;
+            document.getElementById("searchDonor").value = "";
+            document.getElementById("donorResult").innerHTML = `<tr><td colspan="3" class="text-muted">No Data for Show</td></tr>`;
+        } else {
+            alert("Error: " + data.message);
+        }
+    })
+    .catch(err => {
+        alert("Server error: " + err);
+    });
+});
+
+</script>
 
 @endsection

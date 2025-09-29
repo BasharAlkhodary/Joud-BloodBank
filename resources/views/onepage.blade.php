@@ -194,7 +194,7 @@
                                                 
     <h3 class="text-center mb-4">Who gives and who takes blood types</h3>
     <div class="col-md-4 offset-md-right-2 col-sm-6" data-aos="flip-right">
-       <img class="my-5" src="img/app-profile-mockup.jpg" alt="">
+       <img class="my-5" style="margin-left: 110%" src="img/app-profile-mockup.jpg" alt="">
     </div>
   </div>
                         <!--/ .col-md-4.col-md-offset-2.col-sm-6 -->

@@ -29,8 +29,14 @@ public function user()
 
     public function bloodBank()
     {
-        return $this->belongsTo(BloodBank::class, 'blood_bank_id');
+        return $this->belongsTo(User::class, 'blood_bank_id');
     }
+
+    //علاقة لتسجيل التبرع
+    public function donations()
+{
+    return $this->hasMany(Donation::class);
+}
 }
 
 

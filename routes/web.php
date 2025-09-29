@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\RegisterDonorController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DonorProfileController;
 use App\Http\Controllers\DonationRequestController;
+use App\Http\Controllers\DonationController;
+
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -91,3 +93,9 @@ Route::get('/donors', [BloodBankController::class, 'index']);
 Route::post('/donation-requests', [DonationRequestController::class, 'store'])
     ->middleware('auth')    // فرض تسجيل الدخول
     ->name('donation-requests.store');
+
+    //للبحث عن المتبرع وتسجيل التبرع 
+Route::middleware(['auth', 'is_blood_bank'])->group(function() {
+    Route::get('/donors/search', [DonorController::class, 'search'])->name('donors.search');
+    Route::post('/donations/store', [DonationController::class, 'store'])->name('donations.store');
+});
